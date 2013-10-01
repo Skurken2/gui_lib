@@ -110,9 +110,10 @@ export class ComboBox extends GUIElement
 			guiComboBoxSetSelected @gui, id
 		else
 			guiComboBoxGetSelected @gui
-	AddOnAccepted: (callback) =>
-		unless type(callback) == 'function' return
-		addEventHandler 'onClientGUIComboBoxAccepted', @gui, callback, false
+	AddOn: (event, callback) =>
+		unless event and type(callback) == 'function' return
+		if event == 'Accepted'
+			addEventHandler 'onClientGUIComboBoxAccepted', @gui, callback, false
 	AdjustHeight: (count) =>
 		unless count return
 		width = self\Size!
@@ -135,12 +136,12 @@ export class Edit extends GUIElement
 	CaretIndex: (index) =>
 		unless index return
 		guiEditSetCaretIndex @gui, index
-	AddOnChanged: (callback) =>
-		unless type(callback) == 'function' return
-		addEventHandler 'onClientGUIChanged', @gui, callback, false
-	AddOnAccepted: (callback) =>
-		unless type(callback) == 'function' return
-		addEventHandler 'onClientGUIAccepted', @gui, callback, false
+	AddOn: (event, callback) =>
+		unless event and type(callback) == 'function' return
+		if event == 'Changed'
+			addEventHandler 'onClientGUIChanged', @gui, callback, false
+		elseif event == 'Accepted'
+			addEventHandler 'onClientGUIAccepted', @gui, callback, false
 		
 export class GridList extends GUIElement
 	new: (x, y, w, h, relative, parent) =>
@@ -244,9 +245,10 @@ export class Memo extends GUIElement
 	CaretIndex: (index) =>
 		unless index return
 		guiMemoSetCaretIndex @gui, index
-	AddOnChanged: (callback) =>
-		unless type(callback) == 'function' return
-		addEventHandler 'onClientGUIChanged', @gui, callback, false
+	AddOn: (event, callback) =>
+		unless event and type(callback) == 'function' return
+		if event == 'Changed'
+			addEventHandler 'onClientGUIChanged', @gui, callback, false
 		
 export class ProgressBar extends GUIElement
 	new: (x, y, w, h, label, relative, parent) =>
@@ -296,9 +298,10 @@ export class ScrollBar extends GUIElement
 			guiScrollBarSetScrollPosition @gui, pos
 		else
 			guiScrollBarGetScrollPosition @gui
-	AddOnScroll: (callback) =>
-		unless type(callback) == 'function' return
-		addEventHandler 'onClientGUIScroll', @gui, callback, false
+	AddOn: (event, callback) =>
+		unless event and type(callback) == 'function' return
+		if event == 'Scroll'
+			addEventHandler 'onClientGUIScroll', @gui, callback, false
 			
 export class ScrollPane extends GUIElement
 	new: (x, y, w, h, relative, parent) =>
@@ -345,9 +348,10 @@ export class Tab extends GUIElement
 		@gui = guiCreateTab text, parent.gui
 	Delete: (parent = getElementParent @gui) =>
 		guiDeleteTab @gui, parent
-	AddOnSwitched: (callback) =>
-		unless type(callback) == 'function' return
-		addEventHandler 'onClientGUITabSwitched', @gui, callback, false
+	AddOn: (event, callback) =>
+		unless event and type(callback) == 'function' return
+		if event == 'Switched'
+			addEventHandler 'onClientGUITabSwitched', @gui, callback, false
 		
 export class Label extends GUIElement
 	new: (x, y, w, h, text, relative, parent) =>
