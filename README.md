@@ -1,4 +1,4 @@
 gui_lib
 =======
 
-A GUI Library for MTA:SA
+An OOP GUI Library for MTA:SA, written in MoonScript.
