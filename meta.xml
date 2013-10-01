@@ -1,0 +1,5 @@
+<meta>
+	<info author='Skurken' name='GUI Library' version='1.0' type='library'/>
+
+	<script src='gui_lib.lua' type='client'/>
+</meta>
