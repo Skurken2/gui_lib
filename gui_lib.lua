@@ -296,13 +296,11 @@ do
         return guiComboBoxGetSelected(self.gui)
       end
     end,
-    AddOn = function(self, event, callback)
-      if not (event and type(callback) == 'function') then
+    AddOnAccepted = function(self, callback)
+      if not (type(callback) == 'function') then
         return 
       end
-      if event == 'Accepted' then
-        return addEventHandler('onClientGUIComboBoxAccepted', self.gui, callback, false)
-      end
+      return addEventHandler('onClientGUIComboBoxAccepted', self.gui, callback, false)
     end,
     AdjustHeight = function(self, count)
       if not (count) then
@@ -375,15 +373,17 @@ do
       end
       return guiEditSetCaretIndex(self.gui, index)
     end,
-    AddOn = function(self, event, callback)
-      if not (event and type(callback) == 'function') then
+    AddOnChanged = function(self, callback)
+      if not (type(callback) == 'function') then
         return 
       end
-      if event == 'Changed' then
-        return addEventHandler('onClientGUIChanged', self.gui, callback, false)
-      elseif event == 'Accepted' then
-        return addEventHandler('onClientGUIAccepted', self.gui, callback, false)
+      return addEventHandler('onClientGUIChanged', self.gui, callback, false)
+    end,
+    AddOnAccepted = function(self, callback)
+      if not (type(callback) == 'function') then
+        return 
       end
+      return addEventHandler('onClientGUIAccepted', self.gui, callback, false)
     end
   }
   _base_0.__index = _base_0
@@ -629,13 +629,11 @@ do
       end
       return guiMemoSetCaretIndex(self.gui, index)
     end,
-    AddOn = function(self, event, callback)
-      if not (event and type(callback) == 'function') then
+    AddOnChanged = function(self, callback)
+      if not (type(callback) == 'function') then
         return 
       end
-      if event == 'Changed' then
-        return addEventHandler('onClientGUIChanged', self.gui, callback, false)
-      end
+      return addEventHandler('onClientGUIChanged', self.gui, callback, false)
     end
   }
   _base_0.__index = _base_0
@@ -797,13 +795,11 @@ do
         return guiScrollBarGetScrollPosition(self.gui)
       end
     end,
-    AddOn = function(self, event, callback)
-      if not (event and type(callback) == 'function') then
+    AddOnScroll = function(self, callback)
+      if not (type(callback) == 'function') then
         return 
       end
-      if event == 'Scroll' then
-        return addEventHandler('onClientGUIScroll', self.gui, callback, false)
-      end
+      return addEventHandler('onClientGUIScroll', self.gui, callback, false)
     end
   }
   _base_0.__index = _base_0
@@ -1004,13 +1000,11 @@ do
       end
       return guiDeleteTab(self.gui, parent)
     end,
-    AddOn = function(self, event, callback)
-      if not (event and type(callback) == 'function') then
+    AddOnSwitched = function(self, callback)
+      if not (type(callback) == 'function') then
         return 
       end
-      if event == 'Switched' then
-        return addEventHandler('onClientGUITabSwitched', self.gui, callback, false)
-      end
+      return addEventHandler('onClientGUITabSwitched', self.gui, callback, false)
     end
   }
   _base_0.__index = _base_0
