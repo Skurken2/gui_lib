@@ -1,5 +1,5 @@
 <meta>
-	<info author='Skurken' name='OOP GUI Library' version='1.0.1' type='misc'/>
+	<info author='Skurken' name='OOP GUI Library' version='1.0.3' type='misc'/>
 
 	<script src='gui_lib.lua' type='client'/>
 </meta>
