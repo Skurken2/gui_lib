@@ -1,4 +1,4 @@
-GUI Library v1.0.3
+OOP GUI Library v1.0.3
 
 =======
 
